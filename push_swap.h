@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:19 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/23 13:37:27 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:15:00 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,12 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+int		input_error(char *argv);
+void	ft_free_stack(t_stack **a);
+int		is_duplicate(t_stack *a, int value);
+void	add_value(t_stack **a, int value);
+void	init_stack(t_stack **a, char **argv);
+void 	ft_free_array(char **arr);
 
 #endif
