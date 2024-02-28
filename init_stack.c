@@ -6,7 +6,7 @@
 /*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 12:30:48 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/27 14:14:20 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/28 12:40:50 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,12 @@ void	add_value(t_stack **a, int value)
 	else
 	{
 		last = ft_stacklast(*a);
-		last->next = new;
-		new->prev = last;
+		if (last)
+		{
+			last->next = new;
+			new->prev = last;
+		}
 	}
-	
 }
 
 void	init_stack(t_stack **a, char **argv)

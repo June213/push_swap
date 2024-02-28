@@ -6,7 +6,7 @@
 /*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/27 14:05:26 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/28 12:25:27 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ int	main(int argc, char **argv)
 		init_stack(&a, argv + 1);
 	while (a)
 	{
+		printf("%i\n", a->num);
+		a = a->next;
+	}
+	swap(&a);
+	printf("swap hecho\n");
+	while (a)
+	{
+		printf("dentro del bucle\n");
 		printf("%i\n", a->num);
 		a = a->next;
 	}

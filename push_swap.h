@@ -6,7 +6,7 @@
 /*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:19 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/27 14:15:00 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/28 12:16:53 by junesalaber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ int		is_duplicate(t_stack *a, int value);
 void	add_value(t_stack **a, int value);
 void	init_stack(t_stack **a, char **argv);
 void 	ft_free_array(char **arr);
+void	swap(t_stack **head);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 
 #endif
