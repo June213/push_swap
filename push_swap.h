@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:19 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 10:09:30 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:37:38 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_stack
 
 int		input_error(char *argv);
 void	ft_free_stack(t_stack **a);
+void	ft_error(t_stack **a);
 int		is_duplicate(t_stack *a, int value);
-t_stack	*ft_stacklast(t_stack *a);
 void	add_value(t_stack **a, int value);
 void	init_stack(t_stack **a, char **argv);
 void	ft_free_array(char **arr);
@@ -45,5 +45,11 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+int		sorted_stack(t_stack *stack);
+t_stack	*ft_stacklast(t_stack *a);
+int		stack_len(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+void	three_num(t_stack **a);
 
 #endif

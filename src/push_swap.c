@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 11:12:25 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:59:18 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,40 @@ void	ft_free_array(char **arr)
 	free(arr);
 }
 
+void	ft_free_stack(t_stack **a)
+{
+	t_stack	*temp;
+	t_stack	*now;
+
+	if (!a)
+		return ;
+	now = *a;
+	while (now)
+	{
+		temp = now->next;
+		now->num = 0;
+		free(now);
+		now = temp;
+	}
+	*a = NULL;
+}
+
+void	ft_error(t_stack **a)
+{
+	ft_free_stack(a);
+	ft_printf("Error\n");
+	exit(1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*original;
+	// t_stack	*original;
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		ft_putendl_fd("Insert argument", 2);
 	else if (argc == 2)
 	{
@@ -48,28 +73,26 @@ int	main(int argc, char **argv)
 	}
 	else
 		init_stack(&a, argv + 1);
-	original = a;
-	while (a)
+	// original = a;
+	// while (a)
+	// {
+	// 	ft_printf("%i\n", a->num);
+	// 	a = a->next;
+	// }
+	// ft_printf("\n");
+	// a = original;
+	if (sorted_stack(a) != 0)
 	{
-		ft_printf("%i\n", a->num);
-		a = a->next;
+		if (stack_len(a) == 2)
+			sa(&a);
+		if (stack_len(a) == 3)
+			three_num(&a);
 	}
-	ft_printf("\n");
-	a = original;
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	rrr(&a, &b);
-	ft_printf("\n");
-	while (a)
-	{
-		ft_printf("%i\n", a->num);
-		a = a->next;
-	}
-	ft_printf("\n");
-	while (b)
-	{
-		ft_printf("%i\n", b->num);
-		b = b->next;
-	}
+	// while (a)
+	// {
+	// 	ft_printf("%i\n", a->num);
+	// 	a = a->next;
+	// }
+	ft_free_stack(&a);
+	return (0);
 }
