@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
+/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/28 12:25:27 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/29 11:12:25 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void ft_free_array(char **arr)
+void	ft_free_array(char **arr)
 {
 	int	i;
 
@@ -27,9 +27,12 @@ void ft_free_array(char **arr)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*original;
+
 	a = NULL;
+	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		ft_putendl_fd("Insert argument", 2);
 	else if (argc == 2)
@@ -45,17 +48,28 @@ int	main(int argc, char **argv)
 	}
 	else
 		init_stack(&a, argv + 1);
+	original = a;
 	while (a)
 	{
-		printf("%i\n", a->num);
+		ft_printf("%i\n", a->num);
 		a = a->next;
 	}
-	swap(&a);
-	printf("swap hecho\n");
+	ft_printf("\n");
+	a = original;
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	rrr(&a, &b);
+	ft_printf("\n");
 	while (a)
 	{
-		printf("dentro del bucle\n");
-		printf("%i\n", a->num);
+		ft_printf("%i\n", a->num);
 		a = a->next;
+	}
+	ft_printf("\n");
+	while (b)
+	{
+		ft_printf("%i\n", b->num);
+		b = b->next;
 	}
 }

@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
+/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 12:30:48 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/28 12:40:50 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/29 10:47:03 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	input_error(char *argv)
 {
 	int	i;
 
 	i = 0;
-
 	if (!(argv[i] == '+' || argv[i] == '-'
-		|| (argv[i] >= '0' && argv[i] <= '9')))
+			|| (argv[i] >= '0' && argv[i] <= '9')))
 		return (1);
-	if ((argv[i] == '+' || argv[i] == '-') 
+	if ((argv[i] == '+' || argv[i] == '-')
 		&& !(argv[i + 1] >= '0' && argv[i + 1] <= '9'))
 		return (1);
 	while (argv[++i])
@@ -65,17 +64,6 @@ int	is_duplicate(t_stack *a, int value)
 	return (0);
 }
 
-t_stack	*ft_stacklast(t_stack *a)
-{
-	if (!a)
-		return (NULL);
-	while (a->next != NULL)
-	{
-		a = a->next;
-	}
-	return (a);
-}
-
 void	add_value(t_stack **a, int value)
 {
 	t_stack	*new;
@@ -115,7 +103,8 @@ void	init_stack(t_stack **a, char **argv)
 		if (input_error(argv[i]) != 0)
 			ft_free_stack(a);
 		value = ft_atoi(argv[i]);
-		if (value > 2147483647 || value < -2147483648 || is_duplicate(*a, (int)value) != 0)
+		if (value > 2147483647 || value < -2147483648
+			|| is_duplicate(*a, (int)value) != 0)
 			ft_free_stack(a);
 		add_value(a, (int)value);
 		i++;

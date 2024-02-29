@@ -3,26 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junesalaberria <junesalaberria@student.    +#+  +:+       +#+        */
+/*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 12:04:10 by junesalaber       #+#    #+#             */
-/*   Updated: 2024/02/28 12:29:50 by junesalaber      ###   ########.fr       */
+/*   Updated: 2024/02/29 10:47:28 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	swap(t_stack **head)
+static void	swap(t_stack **head)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
-	// if (*head == NULL || (*head)->next == NULL)
-	// 	return ;
-	printf("Antes del intercambio:\n");
-    printf("head: %p\n", (void *)*head);
-    printf("(*head)->num: %d\n", (*head)->num);
-    printf("(*head)->next: %p\n", (void *)(*head)->next);
-    printf("(*head)->prev: %p\n", (void *)(*head)->prev);
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
 	temp = (*head)->next;
 	(*head)->next = temp->next;
 	temp->next = *head;
@@ -31,11 +26,6 @@ void	swap(t_stack **head)
 		(*head)->next->prev = *head;
 	*head = temp;
 	(*head)->prev = NULL;
-	printf("Después del intercambio:\n");
-    printf("head: %p\n", (void *)*head);
-    printf("(*head)->num: %d\n", (*head)->num);
-    printf("(*head)->next: %p\n", (void *)(*head)->next);
-    printf("(*head)->prev: %p\n", (void *)(*head)->prev);
 }
 
 void	sa(t_stack **a)
