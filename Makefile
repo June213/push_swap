@@ -17,6 +17,9 @@ SRCS	= $(SRC_DIR)/push_swap.c \
 		$(SRC_DIR)/operations/rotate.c \
 		$(SRC_DIR)/operations/reverse_rotate.c \
 		$(SRC_DIR)/push_swap_utils.c \
+		$(SRC_DIR)/sort_utils_ab.c \
+		$(SRC_DIR)/sort_utils_ba.c \
+		$(SRC_DIR)/move_ab.c \
 		$(SRC_DIR)/sort.c \
 
 OBJS    = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))

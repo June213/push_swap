@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 12:59:18 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:34:05 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_free_stack(t_stack **a)
 		free(now);
 		now = temp;
 	}
+	free(*a);
 	*a = NULL;
 }
 
@@ -81,18 +82,20 @@ int	main(int argc, char **argv)
 	// }
 	// ft_printf("\n");
 	// a = original;
-	if (sorted_stack(a) != 0)
+	if (!sorted_stack(a))
 	{
 		if (stack_len(a) == 2)
 			sa(&a);
-		if (stack_len(a) == 3)
+		else if (stack_len(a) == 3)
 			three_num(&a);
+		else
+			sort(&a, &b);
 	}
 	// while (a)
 	// {
 	// 	ft_printf("%i\n", a->num);
 	// 	a = a->next;
 	// }
-	ft_free_stack(&a);
+	//ft_free_stack(&a);
 	return (0);
 }

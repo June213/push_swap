@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:03:57 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 12:36:12 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:29:59 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ int	stack_len(t_stack *stack)
 	return (count);
 }
 
-int	sorted_stack(t_stack *stack)
+bool	sorted_stack(t_stack *stack)
 {
 	if (!stack)
 		return (1);
 	while (stack->next)
 	{
 		if (stack->num > stack->next->num)
-			return (1);
+			return (false);
 		stack = stack->next;
 	}
-	return (0);
+	return (true);
 }
 
 t_stack	*find_min(t_stack *stack)

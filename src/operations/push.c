@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:53:13 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 10:47:16 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:16:31 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ static void	push(t_stack **dest, t_stack **src)
 		return ;
 	moved = *src;
 	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
+	moved->prev = NULL;
 	if (!*dest)
 	{
 		*dest = moved;
