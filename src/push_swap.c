@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/06 10:29:51 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:55:25 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (1);
 	else if (argc == 2)
