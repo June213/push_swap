@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:46:13 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/02/29 10:47:21 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 09:25:10 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ static void	reverse_rotate(t_stack **stack)
 		return ;
 	last = ft_stacklast(*stack);
 	last->prev->next = NULL;
-	last->next = (*stack);
+	last->next = *stack;
 	last->prev = NULL;
 	*stack = last;
+	last->next->prev = last;
 }
 
 void	rra(t_stack **a)

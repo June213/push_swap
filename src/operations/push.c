@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 08:53:13 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/05 13:16:31 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 09:09:50 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	pa(t_stack **a, t_stack **b)
 	ft_printf("pa\n");
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
 	ft_printf("pb\n");

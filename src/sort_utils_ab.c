@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:33:45 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/05 13:00:51 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 09:16:32 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ void	ab_move_cost(t_stack *a, t_stack *b)
 		if (!(a->above_median))
 			a->move_cost = a_len - (a->idx);
 		if (a->target_node->above_median)
-			a->move_cost = a->move_cost + a->target_node->idx;
+			a->move_cost += a->target_node->idx;
 		else
-			a->move_cost += b_len - (a->move_cost + a->target_node->idx);
+			a->move_cost += b_len - (a->target_node->idx);
 		a = a->next;
 	}
 }

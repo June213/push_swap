@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:03:57 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/05 12:29:59 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 09:23:18 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack	*ft_stacklast(t_stack *a)
 {
 	if (!a)
 		return (NULL);
-	while (a->next != NULL)
+	while (a->next)
 	{
 		a = a->next;
 	}
@@ -30,10 +30,10 @@ int	stack_len(t_stack *stack)
 	if (!stack)
 		return (0);
 	count = 0;
-	while (stack != NULL)
+	while (stack)
 	{
-		count++;
 		stack = stack->next;
+		count++;
 	}
 	return (count);
 }

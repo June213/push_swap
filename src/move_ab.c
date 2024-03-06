@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:35:36 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/05 12:51:40 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/06 09:31:55 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_stack	*get_cheapest(t_stack *stack)
 
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
+	while (*a != cheapest_node && *b != cheapest_node->target_node)
 	{
 		rr(a, b);
 		set_index(*a);
@@ -37,7 +37,7 @@ void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 
 void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
+	while (*a != cheapest_node && *b != cheapest_node->target_node)
 	{
 		rrr(a, b);
 		set_index(*a);
@@ -77,8 +77,7 @@ void	move_ab(t_stack **a, t_stack **b)
 	else if (!(cheapest_node->above_median)
 		&& !(cheapest_node->target_node->above_median))
 		rev_rotate_both(a, b, cheapest_node);
-	ft_printf("accion hecha\n");
 	top_for_push(a, cheapest_node, 'a');
 	top_for_push(b, cheapest_node->target_node, 'b');
-	pb(a, b);
+	pb(b, a);
 }
