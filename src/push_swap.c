@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/06 11:55:25 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/07 08:57:15 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ int	main(int argc, char **argv)
 	else
 		init_stack(&a, argv + 1);
 	complete_sort(a, b);
+	if (a != NULL)
+	{
+		while (a->prev != NULL)
+			a = a->prev;
+	}
 	ft_free_stack(&a);
 	if (argc == 2)
 		ft_free_array(argv);
