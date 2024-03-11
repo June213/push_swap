@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 08:47:05 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/07 08:57:15 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:01:40 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_free_stack(t_stack **a)
 void	ft_error(t_stack **a)
 {
 	ft_free_stack(a);
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 

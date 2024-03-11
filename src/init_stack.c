@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 12:30:48 by jsalaber          #+#    #+#             */
-/*   Updated: 2024/03/06 10:09:20 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:27:28 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ void	init_stack(t_stack **a, char **argv)
 		if (input_error(argv[i]) != 0)
 			ft_error(a);
 		value = ft_atoi(argv[i]);
-		if (value > 2147483647 || value < -2147483648
-			|| is_duplicate(*a, (int)value) != 0)
+		if (value > INT_MAX || value < INT_MIN)
+			ft_error(a);
+		if (is_duplicate(*a, (int)value) != 0)
 			ft_error(a);
 		add_value(a, (int)value);
 		i++;

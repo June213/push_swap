@@ -6,7 +6,7 @@
 /*   By: jsalaber <jsalaber@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 12:54:47 by jsalaber          #+#    #+#             */
-/*   Updated: 2023/12/26 13:17:53 by jsalaber         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:26:44 by jsalaber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ static int	ft_isspace(int c)
 		|| c == ' ');
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	count_neg;
-	int	nb;
+	int		i;
+	int		count_neg;
+	long	nb;
 
 	i = 0;
 	count_neg = 1;
 	nb = 0;
 	while (ft_isspace(str[i]))
-	{
 		i++;
-	}
 	if (str[i] == '-' && ft_isdigit(str[i + 1]))
 		count_neg = -1;
 	if (str[i] == '+' || str[i] == '-')
